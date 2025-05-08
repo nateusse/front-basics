@@ -3,10 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurante</title>
+    <title>Restaurants</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <nav class="navbar">
+        <ul>
+          <li><a href="views/new.html">New</a></li>
+          <li><a href="index.html">Restaurants</a></li>
+        </ul>
+      </nav>
+      
+    <main>
+        <h1>Restaurants</h1>
+        <input type="text" id="search" placeholder="Search restaurants..." oninput="filterRestaurants()">
+        <div id="container"></div>
+    </main>
     <script src="script.js"></script> 
+    <script src="search.js"></script>
 </body>
 </html>
