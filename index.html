@@ -1,24 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurants</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hoja de vida</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <nav class="navbar">
+  <div class="layout">
+    <aside class="sidebar">
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+          </div>
+      <h2>Natalia Eusse</h2>
+      <nav>
         <ul>
-          <li><a href="views/new.html">New restaurant</a></li>
+          <li><a href="#perfil">🧠 Perfil</a></li>
+          <li><a href="#formacion">🎓 Formación</a></li>
+          <li><a href="#experiencia">💼 Experiencia</a></li>
+          <li><a href="#redes">🌐 Redes</a></li>
+          <li><a href="#contacto">✉️ Contacto</a></li>
         </ul>
       </nav>
+      <button id="toggleDark">🌓 Modo</button>
+    </aside>
+
+    <main class="content">
+      <section id="perfil">
+        <h2>Perfil Profesional</h2>
+        <p id="perfilTexto">
+          Desarrolladora de software Full Stack con sólida formación en Ingeniería de Software y experiencia internacional como instructora técnica bilingüe. Me especializo en el diseño y desarrollo de aplicaciones web escalables utilizando arquitecturas limpias como la hexagonal y los principios SOLID. Domino tecnologías de backend como Java (Spring Boot) y Python, así como frameworks modernos de frontend como Angular y React.
+          <br><br>
+          He liderado y participado en proyectos con despliegue en la nube (AWS), integraciones con APIs, automatización con Docker y GitHub Actions, y pruebas automatizadas (JUnit, Jest, Cypress). Gracias a mi background en psicología, integro un enfoque centrado en la experiencia del usuario, combinando la lógica técnica con la empatía y la comunicación efectiva.
+        </p>
+      </section>
+
+      <section id="formacion">
+        <h2>Formación Académica</h2>
+        <table>
+          <tr>
+            <th>Institución</th>
+            <th>Título</th>
+            <th>Año</th>
+          </tr>
+        </table>
+      </section>
+
+      <section id="experiencia">
+        <h2>Experiencia Laboral</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Empresa</th>
+              <th>Cargo</th>
+              <th>Descripción</th>
+              <th>Periodo</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-experiencia">
+          </tbody>
+        </table>
+      </section>
       
-    <main>
-        <h1>Restaurants</h1>
-        <input type="text" id="search" placeholder="Search restaurants..." oninput="filterRestaurants()">
-        <div id="container"></div>
+
+      <section id="redes">
+        <h2>Redes Sociales</h2>
+        <div class="redes-links"></div> 
+      </section>
+      
+
+      <footer id="contacto">
+        <h2>Contáctame</h2>
+        <form id="contactForm">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" name="nombre" required />
+          <label for="mensaje">Mensaje:</label>
+          <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+          <button type="submit">Enviar</button>
+        </form>
+      </footer>
     </main>
-    <script src="script.js"></script> 
-    <script src="search.js"></script>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
