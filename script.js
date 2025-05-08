@@ -47,7 +47,7 @@ function renderRestaurants() {
 
 function viewDetails(id) {
   if (id) {
-      window.location.href = `details.html?id=${id}`;
+      window.location.href = `views/details.html?id=${id}`;
   } else {
       console.error('ID no válido');
   }
