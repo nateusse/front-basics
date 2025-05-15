@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Navbar from '../components/Navbar';
 import Card from '../components/Card';
+import Search from '../components/Search';
 import './Home.css';
+
 
 function Home() {
   const [restaurants, setRestaurants] = useState([]);
@@ -23,10 +24,12 @@ function Home() {
       setRestaurants(JSON.parse(stored));
     }
   }, []);
-
+  const searchTerm = search.toLowerCase().trim();
   const filteredRestaurants = restaurants.filter(r =>
-    r.name.toLowerCase().includes(search.toLowerCase())
-  );
+  r.name.toLowerCase().includes(searchTerm) ||
+  r.type.toLowerCase().includes(searchTerm) ||
+  r.address.toLowerCase().includes(searchTerm)
+);
 
   const viewDetails = (id) => {
     navigate(`/details/${id}`);
@@ -36,13 +39,7 @@ function Home() {
     <>
       <main>
         <h1>Restaurants</h1>
-        <input
-          type="text"
-          id="search"
-          placeholder="Search restaurants..."
-          value={search}
-          onChange={e => setSearch(e.target.value)}
-        />
+        <Search value={search} onChange={setSearch} />
         <div id="container">
           {filteredRestaurants.map(r => (
             <Card key={r.id} restaurant={r} onViewDetails={viewDetails} />
