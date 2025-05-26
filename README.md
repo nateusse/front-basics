@@ -8,4 +8,5 @@
 # Tecnologias web
 ```
 - tecno-01-HTML_CSS_JS: Actividad 1 (hoja de vida)
+- tecno-02-maquetacion 
 ```
