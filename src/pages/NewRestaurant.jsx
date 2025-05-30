@@ -1,10 +1,14 @@
-function NewRestaurant() {
+import React from 'react';
+import Form from '../components/Form';
+import './NewRestaurant.css';
+
+const NewRestaurant = () => {
   return (
-    <div>
-      <h1>New Restaurant</h1>
-      <p>Form to create a new restaurant goes here.</p>
+    <div className="new-restaurant-page">
+      <h1>Create New Restaurant</h1>
+      <Form />
     </div>
   );
-}
+};
 
 export default NewRestaurant;
