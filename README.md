@@ -1,10 +1,14 @@
-# Ingenieria web
+
+# 🍽️ Restaurant app 
+
+
+## Branches (ramas)
 ```
-- Branch 01-HTML-CSS-JS: Actividad 1 (restaurantes)
+|- Branch 01-HTML-CSS-JS: Actividad 1 (restaurantes)
 |- Branch 02_React-Actividad_2
     |--- feature/nat
-    |--- feature/jhojan
-```
+|- Branch 03_front-back
+
 # Tecnologias web
 ```
 - tecno-01-HTML_CSS_JS: Actividad 1 (hoja de vida)
@@ -14,4 +18,5 @@
 # Otros
 ```
 - training-basics
+```
 ```
