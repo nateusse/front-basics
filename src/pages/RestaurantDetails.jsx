@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../firebase';
 import './RestaurantDetails.css';
 
 const RestaurantDetails = () => {
@@ -8,16 +10,25 @@ const RestaurantDetails = () => {
   const [restaurant, setRestaurant] = useState(null);
 
   useEffect(() => {
-    const restaurants = JSON.parse(localStorage.getItem('restaurants') || '[]');
-    const found = restaurants.find(r => r.id === parseInt(id, 10));
+    const fetchRestaurant = async () => {
+      try {
+        const docRef = doc(db, 'restaurants', id);
+        const docSnap = await getDoc(docRef);
 
-    if (!found) {
-      alert('Restaurant not found');
-      navigate('/');
-      return;
-    }
+        if (docSnap.exists()) {
+          setRestaurant(docSnap.data());
+        } else {
+          alert('Restaurant not found');
+          navigate('/');
+        }
+      } catch (error) {
+        console.error('❌ Error fetching restaurant:', error);
+        alert('Error loading restaurant');
+        navigate('/');
+      }
+    };
 
-    setRestaurant(found);
+    fetchRestaurant();
   }, [id, navigate]);
 
   const renderMenuSection = (title, items = []) => (
@@ -33,14 +44,12 @@ const RestaurantDetails = () => {
     </div>
   );
 
-  if (!restaurant) return null;
+  if (!restaurant) return <p>Loading...</p>;
 
   return (
     <div className="restaurant-details">
-
       <h1>{restaurant.name}</h1>
       <h2>Menu</h2>
-
       <div id="menu">
         {renderMenuSection('Appetizers', restaurant?.menu?.appetizers)}
         {renderMenuSection('Main Courses', restaurant?.menu?.mainCourses)}
